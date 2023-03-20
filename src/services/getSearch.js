@@ -1,7 +1,6 @@
 const { VITE_API_KEY } = import.meta.env
 
-const getMovies = async (busqueda) => {
-    if (busqueda === '') return null
+const getSearch = async (busqueda) => {
     try {
         const response = await fetch
             (`https://api.themoviedb.org/3/search/movie?api_key=${VITE_API_KEY}&language=en-US&query=${busqueda}&page=1`)
@@ -22,4 +21,4 @@ const getMovies = async (busqueda) => {
     }
 }
 
-export default getMovies
+export default getSearch
