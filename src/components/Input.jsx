@@ -1,33 +1,30 @@
 import useInput from '../hooks/useInput'
+import { Form } from 'react-router-dom'
 
-function Input({ searchMovies }) {
-	const { value, setValue } = useInput()
+export default function Input() {
+	const { value, setValue, error } = useInput()
 
 	const handleChange = (event) => {
 		const search = event.target.value
 		setValue(search)
 	}
 
-	const onSubmit = (event) => {
-		event.preventDefault()
-		searchMovies(value)
-	}
-
 	return (
-		<form
-			onSubmit={onSubmit}
-			action='#'
-			className='form-control flex flex-row items-center justify-center gap-x-5 p-5'>
-			<input
-				onChange={handleChange}
-				value={value}
-				name='query'
-				className='input-bordered input w-96'
-				placeholder='Buscar pelicula...'
-			/>
+		<Form
+			action='/resultados'
+			className='form-control relative flex flex-row  justify-center gap-x-5 p-5'>
+			<div>
+				<input
+					required
+					onChange={handleChange}
+					value={value}
+					name='query'
+					className='input-bordered input w-96'
+					placeholder='Buscar pelicula...'
+				/>
+				{error && <p className='mt-1 ml-2 text-sm text-red-500'>{error}</p>}
+			</div>
 			<button className='btn-primary btn text-white'>Buscar</button>
-		</form>
+		</Form>
 	)
 }
-
-export default Input
