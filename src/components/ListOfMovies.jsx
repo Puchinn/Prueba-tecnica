@@ -5,7 +5,7 @@ function ListOfMovies({ movies }) {
 	return (
 		<div>
 			{hasMovies ? (
-				<ul className='mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-10 bg-base-200 p-2'>
+				<ul className='mx-auto grid max-w-7xl grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-10 p-2'>
 					{movies.map((movie) => (
 						<Movie
 							key={movie.id}
