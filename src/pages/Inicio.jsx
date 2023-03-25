@@ -1,14 +1,11 @@
 import Input from '../components/Input'
 import Hero from '../components/Hero'
-import { useNavigation } from 'react-router-dom'
 
 export default function Inicio() {
-	const { state } = useNavigation()
 	return (
-		<>
+		<div className='flex flex-col items-center'>
 			<Hero />
 			<Input />
-			{state === 'loading' ? <h1>cargando...</h1> : ''}
-		</>
+		</div>
 	)
 }
