@@ -1,18 +1,12 @@
 export default function Pagination({ pages, actualPage, setActualPage }) {
 	const next = () => {
-		if (actualPage + 1 > pages) {
-			setActualPage(1)
-			return
-		}
-		setActualPage(actualPage + 1)
+		const nextPage = actualPage + 1 > pages ? 1 : actualPage + 1
+		setActualPage(nextPage)
 	}
 
 	const back = () => {
-		if (actualPage - 1 === 0) {
-			setActualPage(pages)
-			return
-		}
-		setActualPage(actualPage - 1)
+		const lastPage = actualPage - 1 === 0 ? pages : actualPage - 1
+		setActualPage(lastPage)
 	}
 
 	return (
