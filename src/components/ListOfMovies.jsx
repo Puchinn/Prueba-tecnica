@@ -2,7 +2,7 @@ import Movie from './Movie'
 
 function ListOfMovies({ movies }) {
 	const isArray = Array.isArray(movies)
-	const hasMovies = isArray && movies.length > 1
+	const hasMovies = isArray && movies.length >= 1
 	return (
 		<div>
 			{hasMovies ? (
