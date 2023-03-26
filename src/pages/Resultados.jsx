@@ -1,35 +1,27 @@
-import { useLoaderData, useNavigation } from 'react-router-dom'
 import ListOfMovies from './../components/ListOfMovies'
-import getSearch from './../services/getSearch'
 import Input from '../components/Input'
 import Pagination from './../components/Pagination'
+import { useSearchParams } from 'react-router-dom'
+import useSearchMovies from '../hooks/useSearchMovies'
 
 export default function Resultados() {
-	const { movies } = useLoaderData()
-	const { state } = useNavigation()
+	const [params] = useSearchParams()
+	const query = params.get('query')
+	const { movies, actualPage, pages, setActualPage, isLoading } =
+		useSearchMovies(query)
 
 	return (
 		<div className='w-full'>
 			<Input />
 			<div className='mb-4 flex justify-center'>
-				{state === 'loading' ? (
-					<progress className='progress mx-auto w-56'></progress>
-				) : (
-					''
-				)}
+				{isLoading && <progress className='progress mx-auto w-56'></progress>}
 			</div>
-			<div>
-				<div></div>
-				<ListOfMovies movies={movies} />
-				<Pagination />
-			</div>
+			<Pagination
+				pages={pages}
+				setActualPage={setActualPage}
+				actualPage={actualPage}
+			/>
+			<ListOfMovies movies={movies} />
 		</div>
 	)
-}
-
-export async function loader({ request }) {
-	const url = new URL(request.url)
-	const query = url.searchParams.get('query')
-	const movies = await getSearch(query)
-	return { movies }
 }
