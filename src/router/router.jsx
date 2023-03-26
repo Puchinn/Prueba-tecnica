@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from '../App'
 import Inicio from '../pages/Inicio'
-import Resultados, { loader as resultadosLoader } from '../pages/Resultados'
+import Resultados from '../pages/Resultados'
 
 const router = createBrowserRouter([
 	{
@@ -15,7 +15,6 @@ const router = createBrowserRouter([
 			{
 				path: 'resultados',
 				element: <Resultados />,
-				loader: resultadosLoader,
 			},
 		],
 	},
