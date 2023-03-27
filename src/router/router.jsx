@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from '../App'
 import Inicio from '../pages/Inicio'
 import Resultados from '../pages/Resultados'
+import MovieDetails from '../pages/MovieDetails'
 
 const router = createBrowserRouter([
 	{
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
 			{
 				path: 'resultados',
 				element: <Resultados />,
+			},
+			{
+				path: 'pelicula/:peliId',
+				element: <MovieDetails />,
 			},
 		],
 	},
