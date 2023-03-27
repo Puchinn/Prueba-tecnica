@@ -23,7 +23,7 @@ export default function Input() {
 					className='input-bordered input w-96'
 					placeholder='Buscar pelicula...'
 				/>
-				{error && <p className='mt-1 ml-2 text-sm text-red-500'>{error}</p>}
+				{error && <p className='absolute mt-2 ml-2 text-sm text-red-500'>{error}</p>}
 			</div>
 			<button className='btn-primary btn text-white'>Buscar</button>
 		</Form>
