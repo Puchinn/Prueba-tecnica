@@ -21,7 +21,7 @@ export default function Resultados() {
 				setActualPage={setActualPage}
 				actualPage={actualPage}
 			/>
-			<ListOfMovies movies={movies} />
+			<ListOfMovies movies={movies} isLoading={isLoading} />
 		</div>
 	)
 }
