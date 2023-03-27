@@ -10,6 +10,7 @@ function ListOfMovies({ movies, isLoading }) {
 					{movies.map((movie) => (
 						<Movie
 							key={movie.id}
+							id={movie.id}
 							title={movie.title}
 							date={movie.date}
 							img={`https://image.tmdb.org/t/p/w400` + movie.image}
