@@ -1,6 +1,10 @@
-function Movie({ title, date, img, rate }) {
+import { Link } from 'react-router-dom'
+
+function Movie({ title, date, img, rate, id }) {
 	return (
-		<a href='#' className='group relative block min-h-[400px] w-56 overflow-hidden'>
+		<Link
+			to={`/pelicula/${id}`}
+			className='group relative block min-h-[400px] w-56 overflow-hidden'>
 			<button className='absolute right-2 top-4 z-10 p-1.5'>
 				<span className='inline-flex items-center gap-0.5 rounded-xl bg-black/70 px-2 py-1 text-xs font-semibold text-white'>
 					{rate}
@@ -27,7 +31,7 @@ function Movie({ title, date, img, rate }) {
 
 				<h3 className='mt-4 text-base font-medium text-neutral'>{title}</h3>
 			</div>
-		</a>
+		</Link>
 	)
 }
 
