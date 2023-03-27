@@ -15,6 +15,7 @@ export default function Input() {
 			className='form-control relative flex flex-row  justify-center gap-x-5 p-5'>
 			<div>
 				<input
+					autoComplete='off'
 					type='search'
 					required
 					onChange={handleChange}
